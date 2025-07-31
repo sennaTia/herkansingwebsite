@@ -11,5 +11,14 @@
      <header>
         <a href="reserveren.php" class="reserveren">Reserveren</a>
     </header>
+
+    <div class="pagefoto1">
+
+    </div>
+    
+    <div class="pagefoto2">
+
+    </div>
+
 </body>
 </html>
