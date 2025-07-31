@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("SELECT * FROM gebruikers WHERE username = ? AND password = ?");
     $stmt->execute([$username, $password]);
     $gebruiker = $stmt->fetch();
-wo
+
   
 }
 ?>
