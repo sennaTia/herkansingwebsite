@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bibliotheek</title>
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <title>Boekenreus</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
-     <header>
-        <a href="reserveren.php" class="reserveren">Reserveren</a>
-    </header>
+  <header>
+    <nav>
+      <a href="alleboeken.php">Alle boeken</a>
+    </nav>
 
-    <div class="pagefoto1">
-        <img class="">
+    <h1>Boekenreus</h1>
 
-    </div>
+    <nav>
+      <a href="reserveren.php">Reserveren</a>
+    </nav>
+  </header>
 
-    <div class="pagefoto2">
-
-    </div>
+  <img src="../images/imgmain.jpg" class="mainimage" alt="Bibliotheek">
 
 </body>
+
 </html>

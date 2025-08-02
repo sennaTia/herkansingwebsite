@@ -1,0 +1,4 @@
+FROM php:8.0-apache
+
+# Installeer mysqli en pdo_mysql
+RUN docker-php-ext-install mysqli pdo pdo_mysql
