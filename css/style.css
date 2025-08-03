@@ -19,7 +19,7 @@ nav a {
   color: black;
   font-size: 1.5rem;
   font-weight: bold;
-  margin-top: -20px;
+ 
 }
 
 nav a:hover {
@@ -41,4 +41,54 @@ h1 {
   height: 80vh;
   object-fit: cover;
   display: block;
+}
+
+/* Zorg dat de hoofdinhoud een max breedte krijgt en gecentreerd wordt */
+main {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+/* Formulier: kolom met ruimte tussen de velden */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Inputvelden en knoppen opmaken */
+input, button {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Knoppenstijl en hover effect */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Resultatenblok mooi vormgegeven */
+.resultaat {
+  margin-top: 2rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  text-align: left; /* zodat tekst beter leesbaar is */
+}
+
+header nav {
+  min-width: 100px; /* of pas aan naar de breedte van je linkernav */
 }
