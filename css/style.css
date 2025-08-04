@@ -8,7 +8,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem ;
   background-color: white;
   height: 20vh;
 }
@@ -67,7 +67,7 @@ input, button {
   border-radius: 4px;
 }
 
-/* Knoppenstijl en hover effect */
+
 button {
   background-color: #007bff;
   color: white;
@@ -79,14 +79,14 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Resultatenblok mooi vormgegeven */
+
 .resultaat {
   margin-top: 2rem;
   background-color: #fff;
   padding: 1rem;
   border-radius: 6px;
   box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  text-align: left; /* zodat tekst beter leesbaar is */
+  text-align: left; 
 }
 
 header nav {
