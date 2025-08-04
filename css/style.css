@@ -92,3 +92,45 @@ button:hover {
 header nav {
   min-width: 100px; /* of pas aan naar de breedte van je linkernav */
 }
+
+.login-container {
+    background-color: white;
+    padding: 40px 60px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    margin: auto;
+    margin-top: 10vh;
+}
+ 
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+ 
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+ 
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+ 
+.login-container button:hover {
+    background-color: #555;
+}
+ 

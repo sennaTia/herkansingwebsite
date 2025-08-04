@@ -18,6 +18,10 @@
     <nav>
       <a href="reserveren.php">Reserveren</a>
     </nav>
+
+    <nav>
+      <a href="inlog.php">Inloggen</a>
+    </nav>
   </header>
 
   <img src="../images/imgmain.jpg" class="mainimage" alt="Bibliotheek">
