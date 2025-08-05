@@ -13,6 +13,10 @@
       <a href="alleboeken.php">Alle boeken</a>
     </nav>
 
+    <nav>
+      <a href="overons.php">Over ons</a>
+    </nav>
+
     <h1>Boekenreus</h1>
 
     <nav>
