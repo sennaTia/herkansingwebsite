@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Alle Boeken</title>
-  <link rel="stylesheet" href="../css/style3.css">
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
  <header>
