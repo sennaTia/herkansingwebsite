@@ -1,56 +1,79 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit;
+}
+
+$message = ''; // altijd initialiseren
+$boeken = []; // ook altijd initialiseren
+
+try {
+    $pdo = new PDO("mysql:host=db;dbname=bibliotheek;charset=utf8mb4", "root", "rootpassword");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    if (isset($_POST['boek_id'])) {
+        $boek_id = (int)$_POST['boek_id'];
+        $user_id = $_SESSION['user_id'];
+
+        $stmt = $pdo->prepare("SELECT * FROM reserveringen WHERE boek_id = ?");
+        $stmt->execute([$boek_id]);
+        $reservering = $stmt->fetch();
+
+        if ($reservering) {
+            $message = "Dit boek is al gereserveerd.";
+        } else {
+            $stmt = $pdo->prepare("INSERT INTO reserveringen (boek_id, user_id) VALUES (?, ?)");
+            $stmt->execute([$boek_id, $user_id]);
+            $message = "Boek succesvol gereserveerd!";
+        }
+
+        // Redirect om refresh dubbel post te voorkomen
+        header("Location: " . $_SERVER['PHP_SELF']);
+        exit;
+    }
+
+    $stmt = $pdo->query("SELECT * FROM boeken WHERE id NOT IN (SELECT boek_id FROM reserveringen)");
+    $boeken = $stmt->fetchAll();
+
+} catch (PDOException $e) {
+    $message = "Er is een fout opgetreden: " . $e->getMessage();
+}
+?>
+
 <!DOCTYPE html>
-<html lang="nl">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Boek Reserveren</title>
-  <link rel="stylesheet" href="../css/style2.css">
+    <title>Boeken reserveren</title>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.php">← Terug</a>
-    </nav>
-    <h1>Reserveren</h1>
-    <nav></nav>
-  </header>
 
-  <main>
-    <h2>Reserveer een boek</h2>
+<h1>Boeken reserveren</h1>
 
+<p><a href="mijn_reserveringen.php">Bekijk mijn reserveringen</a></p>
+
+<?php if ($message): ?>
+    <p><strong><?= htmlspecialchars($message) ?></strong></p>
+<?php endif; ?>
+
+<?php if (count($boeken) === 0): ?>
+    <p>Geen boeken beschikbaar.</p>
+<?php else: ?>
     <form method="post">
-      <input type="text" name="naam" placeholder="Jouw naam..." required>
-      <input type="text" name="boek" placeholder="Titel van het boek..." required>
-      <input type="date" name="datum" required>
-      <button type="submit">Reserveren</button>
+        <select name="boek_id" required>
+            <option value="">-- Kies een boek --</option>
+            <?php foreach ($boeken as $boek): ?>
+                <option value="<?= $boek['id'] ?>">
+                    <?= htmlspecialchars($boek['titel']) ?> (<?= htmlspecialchars($boek['auteur']) ?>)
+                </option>
+            <?php endforeach; ?>
+        </select>
+        <button type="submit">Reserveer</button>
     </form>
+<?php endif; ?>
 
-    <?php
-      if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $naam = htmlspecialchars($_POST['naam']);
-        $boek = htmlspecialchars($_POST['boek']);
-        $datum = htmlspecialchars($_POST['datum']);
+<a href="logout.php">Uitloggen</a>
 
-        // Einddatum = 14 dagen later
-        $startDatum = new DateTime($datum);
-        $eindDatum = clone $startDatum;
-        $eindDatum->modify('+14 days');
-        $tot = $eindDatum->format('Y-m-d');
-
-        // Reservering opslaan
-        $regel = "$naam | $boek | $datum | $tot\n";
-        file_put_contents("reserveringen.txt", $regel, FILE_APPEND);
-
-        echo "<div class='resultaat'>";
-        echo "<h3>Reservering ontvangen:</h3>";
-        echo "<p><strong>Naam:</strong> $naam</p>";
-        echo "<p><strong>Boek:</strong> $boek</p>";
-        echo "<p><strong>Van:</strong> $datum</p>";
-        echo "<p><strong>Tot:</strong> $tot</p>";
-        echo "</div>";
-      }
-    ?>
-
-    <p style="margin-top: 2rem;"><a href="reserveringen.php"> Bekijk alle reserveringen</a></p>
-  </main>
 </body>
 </html>

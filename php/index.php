@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Boekenreus</title>
-  <link rel="stylesheet" href="../css/style2.css">
+  <link rel="stylesheet" href="../css/style3.css">
 </head>
 
 <body>
@@ -20,9 +20,7 @@
     <h1>Boekenreus</h1>
 
 
-       <nav>
-      <a href="reserveren.php">Reserveren</a>
-    </nav>
+     
 
 
      <nav>

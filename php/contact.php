@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact</title>
-    <link rel="stylesheet" href="../css/style2.css">
+    <link rel="stylesheet" href="../css/style3.css">
 </head>
 <body>
 
@@ -11,7 +11,7 @@
   <nav>
     <a href="index.php">← Terug</a>
   </nav>
-  <h1>Contact</h1>
+
 </header>
 
 <div class="blok-midden">

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Reserveringen</title>
-  <link rel="stylesheet" href="../css/style2.css">
+  <link rel="stylesheet" href="../css/style3.css">
 </head>
 <body>
   <header>

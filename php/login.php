@@ -11,13 +11,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $gebruiker = $stmt->fetch();
 
     if ($gebruiker) {
+        // Zet user id en username in sessie
+        $_SESSION['user_id'] = $gebruiker['id'];       // ZO moet het!
         $_SESSION['username'] = $gebruiker['username'];
 
         if ($gebruiker['username'] === 'admin') {
             $_SESSION['is_admin'] = true;
-            header('Location: admin_menu.php');
+            header('Location: adminpanel.php');
         } else {
-            header('Location: menu.php');
+            header('Location: reserveren.php');
         }
         exit;
     } else {

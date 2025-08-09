@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="../css/style2.css">
+    <link rel="stylesheet" href="../css/style3.css">
 
 </head>
 <body>
@@ -12,7 +12,7 @@
   <nav>
     <a href="index.php">← Terug</a>
   </nav>
-  <h1>Login</h1>
+
 </header>
     <div class="login-container">
         <h2>Login</h2>
