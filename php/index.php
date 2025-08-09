@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Boekenreus</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style2.css">
 </head>
 
 <body>
@@ -19,13 +19,20 @@
 
     <h1>Boekenreus</h1>
 
-    <nav>
+
+       <nav>
       <a href="reserveren.php">Reserveren</a>
     </nav>
 
-    <nav>
+
+     <nav>
       <a href="inlog.php">Inloggen</a>
     </nav>
+
+    <nav>
+      <a href="contact.php">Contact</a>
+    </nav>
+
   </header>
 
   <img src="../images/imgmain.jpg" class="mainimage" alt="Bibliotheek">

@@ -10,7 +10,7 @@ header {
   align-items: center;
   padding: 1rem ;
   background-color: white;
-  height: 20vh;
+height: 30vh;
 }
 
 nav a {
@@ -89,9 +89,7 @@ button:hover {
   text-align: left; 
 }
 
-header nav {
-  min-width: 100px; /* of pas aan naar de breedte van je linkernav */
-}
+
 
 .login-container {
     background-color: white;
@@ -195,4 +193,52 @@ header nav {
     .about-container img {
         margin-bottom: 20px;
     }
+}
+
+.blok-midden {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    width: 340px;
+    position: absolute;
+    top: 100px;           /* 100px vanaf de bovenkant */
+    left: 50%;            /* horizontaal in het midden zetten */
+    transform: translateX(-50%); /* echt centreren door de helft van eigen breedte naar links */
+}
+
+
+.formulier-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.formulier-contact input,
+.formulier-contact textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.knop-verzend {
+    background-color: darkblue;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.knop-verzend:hover {
+    background-color: navy;
+}
+
+.info-bedrijf {
+    margin-top: 20px;
+    font-size: 0.95em;
 }
