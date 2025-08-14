@@ -28,6 +28,7 @@ $reserveringen = $stmt->fetchAll();
 <html>
 <head>
     <title>Mijn reserveringen</title>
+    <link rel="stylesheet" href="../css/style3.css">
 </head>
 <body>
     <h1>Mijn reserveringen</h1>
@@ -48,10 +49,12 @@ $reserveringen = $stmt->fetchAll();
                 <td><?= htmlspecialchars($boek['titel']) ?></td>
                 <td><?= htmlspecialchars($boek['genre']) ?></td>
                 <td>
-                    <form method="post" style="margin:0;">
+                    <div class="formmargin">
+                    <form method="post" >
                         <input type="hidden" name="boek_id" value="<?= $boek['id'] ?>">
-                        <button type="submit">Annuleren</button>
+                        <button1 type="submit">Annuleren</button1>
                     </form>
+                    </div>
                 </td>
             </tr>
             <?php endforeach; ?>

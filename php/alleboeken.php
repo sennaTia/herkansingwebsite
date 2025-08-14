@@ -25,6 +25,9 @@ try {
         $stmt = $pdo->prepare($sql);
         $stmt->execute($params);
         $boeken = $stmt->fetchAll();
+    } else {
+        $stmt = $pdo->query("SELECT * FROM boeken");
+        $boeken = $stmt->fetchAll();
     }
 
 } catch (PDOException $e) {
@@ -54,12 +57,12 @@ try {
   </form>
 
   <?php if ($boeken): ?>
-  <table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%; max-width: 600px; margin-top: 1rem;">
-    <thead style="background-color: #f2f2f2;">
+  <table class="boeken-tabel">
+    <thead>
       <tr>
-        <th style="text-align: left;">Auteur</th>
-        <th style="text-align: left;">Titel</th>
-        <th style="text-align: left;">Genre</th>
+        <th>Auteur</th>
+        <th>Titel</th>
+        <th>Genre</th>
       </tr>
     </thead>
     <tbody>
