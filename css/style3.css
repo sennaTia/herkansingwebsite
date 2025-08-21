@@ -1,0 +1,326 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem ;
+  background-color: #ffffff;
+  height: 20vh;
+}
+
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #000000;
+  font-size: 1.5rem;
+  font-weight: bold;
+ 
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0;
+  flex-grow: 1;
+  text-align: center;
+}
+
+
+
+.mainimage {
+  width: 100%;
+  max-width: 100%;
+  height: 80vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* Zorg dat de hoofdinhoud een max breedte krijgt en gecentreerd wordt */
+main {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+/* Formulier: kolom met ruimte tussen de velden */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Inputvelden en knoppen opmaken */
+input, button {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input, .button-secondary {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.button-secondary {
+  background-color: #333;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+.button-secondary:hover {
+  background-color: #000000;
+}
+
+.resultaat {
+  margin-top: 2rem;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  text-align: left; 
+}
+
+
+
+.login-container {
+    background-color: #ffffff;
+    padding: 40px 60px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    margin: auto;
+    margin-top: 10vh;
+}
+ 
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+ 
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+ 
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #333;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+ 
+.login-container button:hover {
+    background-color: #555;
+}
+ 
+
+.about-container {
+    max-width: 800px;
+    margin:  auto;
+    margin-top: 3%;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+}
+
+.about-container img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.terugknop {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 16px;
+    background-color: #333;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+  
+}
+
+.terugknop:hover {
+    background-color: #555;
+}
+
+/* Voor mobiel */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-container img {
+        margin-bottom: 20px;
+    }
+}
+
+.blok-midden {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    width: 340px;
+    position: absolute;
+    top: 100px;           /* 100px vanaf de bovenkant */
+    left: 50%;            /* horizontaal in het midden zetten */
+    transform: translateX(-50%); /* echt centreren door de helft van eigen breedte naar links */
+}
+
+
+.formulier-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.formulier-contact input,
+.formulier-contact textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.knop-verzend {
+    background-color: #00008b;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.knop-verzend:hover {
+    background-color: #000080;
+}
+
+.info-bedrijf {
+    margin-top: 20px;
+    font-size: 0.95em;
+}
+
+/* Zoekformulier specifiek voor boeken */
+.zoek-formulier {
+    display: flex;
+    gap: 10px;
+    margin: 20px auto;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.zoek-formulier input {
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.zoek-formulier button {
+    padding: 8px 16px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.zoek-formulier button:hover {
+    background-color: #0056b3;
+}
+
+/* Tabel met boeken */
+.boeken-tabel {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.102);
+    border-radius: 6px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.boeken-tabel th,
+.boeken-tabel td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.boeken-tabel th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.formmargin {
+  margin: 0;
+}
+
+table {
+  border: 1px solid black; /* net als border="1" */
+  border-collapse: collapse; /* voorkomt dubbele randen */
+}
+
+td, th {
+  padding: 5px; /* net als cellpadding="5" */
+}

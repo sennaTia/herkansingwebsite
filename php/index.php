@@ -1,11 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bibliotheek</title>
+  <meta charset="UTF-8">
+  <title>Boekenreus</title>
+  <link rel="stylesheet" href="../css/style3.css">
 </head>
+
 <body>
-    <div cla
+  <header>
+    <nav>
+      <a href="alleboeken.php">Alle boeken</a>
+    </nav>
+
+    <nav>
+      <a href="overons.php">Over ons</a>
+    </nav>
+
+    <h1>Boekenreus</h1>
+
+     <nav>
+      <a href="inlog.php">Inloggen</a>
+    </nav>
+
+    <nav>
+      <a href="contact.php">Contact</a>
+    </nav>
+
+  </header>
+
+  <img src="../images/imgmain.jpg" class="mainimage" alt="Bibliotheek">
+
 </body>
+
 </html>
