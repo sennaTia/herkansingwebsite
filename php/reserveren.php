@@ -6,8 +6,8 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-$message = ''; // altijd initialiseren
-$boeken = []; // ook altijd initialiseren
+$message = ''; 
+$boeken = []; 
 
 try {
     $pdo = new PDO("mysql:host=db;dbname=bibliotheek;charset=utf8mb4", "root", "rootpassword");

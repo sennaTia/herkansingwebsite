@@ -1,28 +1,22 @@
 <?php
 session_start();
 
-// Voorbeeld: stel dat je ingelogd bent en user_id in de session staat
-$user_id = $_SESSION['user_id'] ?? 1; // tijdelijk 1 als test
 
-// Connectie maken met database
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : 1;
+
 $pdo = new PDO("mysql:host=db;dbname=bibliotheek;charset=utf8mb4", "root", "rootpassword");
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Annuleren van reservering (als er een boek_id wordt meegegeven via POST)
 if (isset($_POST['boek_id'])) {
     $boek_id = (int)$_POST['boek_id'];
     $stmt = $pdo->prepare("DELETE FROM reserveringen WHERE boek_id = ? AND user_id = ?");
-    $stmt->execute([$boek_id, $user_id]);
+    $stmt->execute(array($boek_id, $user_id));
 }
 
-// Haal alle reserveringen van deze gebruiker op
-$stmt = $pdo->prepare("SELECT b.id, b.titel, b.auteur, b.genre 
-                       FROM boeken b 
-                       JOIN reserveringen r ON b.id = r.boek_id 
-                       WHERE r.user_id = ?");
-$stmt->execute([$user_id]);
+$stmt = $pdo->prepare("SELECT * FROM boeken WHERE id IN (SELECT boek_id FROM reserveringen WHERE user_id = ?)");
+$stmt->execute(array($user_id));
 $reserveringen = $stmt->fetchAll();
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -52,7 +46,7 @@ $reserveringen = $stmt->fetchAll();
                     <div class="formmargin">
                     <form method="post" >
                         <input type="hidden" name="boek_id" value="<?= $boek['id'] ?>">
-                        <button1 type="submit">Annuleren</button1>
+                        <button class="button button-secondary" type="submit">Annuleren</button>
                     </form>
                     </div>
                 </td>

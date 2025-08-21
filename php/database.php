@@ -1,5 +1,5 @@
 <?php
-$host = 'db'; // <== naam van de MySQL service in docker-compose.yml
+$host = 'db'; 
 $db   = 'bibliotheek';
 $user = 'root';
 $pass = 'rootpassword';

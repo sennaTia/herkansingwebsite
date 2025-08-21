@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($gebruiker) {
         // Zet user id en username in sessie
-        $_SESSION['user_id'] = $gebruiker['id'];       // ZO moet het!
+        $_SESSION['user_id'] = $gebruiker['id'];       
         $_SESSION['username'] = $gebruiker['username'];
 
         if ($gebruiker['username'] === 'admin') {

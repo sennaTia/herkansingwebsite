@@ -29,6 +29,8 @@
         </label>
 
         <button type="submit" class="knop-verzend">Verstuur</button>
+    
+
     </form>
 
     <div class="info-bedrijf">

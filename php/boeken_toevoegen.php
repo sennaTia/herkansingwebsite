@@ -9,9 +9,24 @@ $pdo = new PDO("mysql:host=db;dbname=bibliotheek;charset=utf8mb4", "root", "root
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $auteur = $_POST['auteur'] ?? '';
-    $titel = $_POST['titel'] ?? '';
-    $genre = $_POST['genre'] ?? '';
+ if (isset($_POST['auteur'])) {
+    $auteur = $_POST['auteur'];
+} else {
+    $auteur = '';
+}
+
+if (isset($_POST['titel'])) {
+    $titel = $_POST['titel'];
+} else {
+    $titel = '';
+}
+
+if (isset($_POST['genre'])) {
+    $genre = $_POST['genre'];
+} else {
+    $genre = '';
+}
+
 
     if ($auteur && $titel) {
         $stmt = $pdo->prepare("INSERT INTO boeken (auteur, titel, genre) VALUES (?, ?, ?)");

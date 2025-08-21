@@ -19,10 +19,6 @@
 
     <h1>Boekenreus</h1>
 
-
-     
-
-
      <nav>
       <a href="inlog.php">Inloggen</a>
     </nav>

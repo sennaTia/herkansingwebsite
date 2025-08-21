@@ -15,6 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     exit;
 }
 
+
 $editId = $_GET['edit_id'] ?? null;
 
 if ($editId) {
@@ -39,17 +40,24 @@ if ($editId) {
     <a href="boeken_wijzigen.php">Annuleren</a>
 <?php else: ?>
     <table border="1" cellpadding="5">
-        <tr><th>Auteur</th><th>Titel</th><th>Genre</th><th>Wijzigen</th></tr>
+        <tr>
+            <th>Auteur</th>
+            <th>Titel</th>
+            <th>Genre</th>
+            <th>Wijzigen</th>
+        </tr>
         <?php
         $boeken = $pdo->query("SELECT * FROM boeken ORDER BY id DESC")->fetchAll();
-        foreach ($boeken as $boek): ?>
-        <tr>
-            <td><?= htmlspecialchars($boek['auteur']) ?></td>
-            <td><?= htmlspecialchars($boek['titel']) ?></td>
-            <td><?= htmlspecialchars($boek['genre']) ?></td>
-            <td><a href="?edit_id=<?= $boek['id'] ?>">Wijzigen</a></td>
-        </tr>
-        <?php endforeach; ?>
+        foreach ($boeken as $boek) {
+            echo "<tr>";
+            echo "<td>" . $boek['auteur'] . "</td>";
+            echo "<td>" . $boek['titel'] . "</td>";
+            echo "<td>" . $boek['genre'] . "</td>";
+            echo "<td><a href='?edit_id=" . $boek['id'] . "'>Wijzigen</a></td>";
+            echo "</tr>";
+        }
+        ?>
+
     </table>
     <a href="adminpanel.php">Terug</a>
 <?php endif; ?>

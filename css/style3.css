@@ -9,14 +9,14 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem ;
-  background-color: white;
+  background-color: #ffffff;
   height: 20vh;
 }
 
 nav a {
   margin: 0 1rem;
   text-decoration: none;
-  color: black;
+  color: #000000;
   font-size: 1.5rem;
   font-weight: bold;
  
@@ -67,10 +67,23 @@ input, button {
   border-radius: 4px;
 }
 
+input, .button-secondary {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
 
 button {
   background-color: #007bff;
-  color: white;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.button-secondary {
+  background-color: #333;
+  color: #ffffff;
   border: none;
   cursor: pointer;
 }
@@ -78,24 +91,8 @@ button {
 button:hover {
   background-color: #0056b3;
 }
-
-input, button1 {
-  padding: 0.6rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-
-button1 {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button1:hover {
-  background-color: #0056b3;
+.button-secondary:hover {
+  background-color: #000000;
 }
 
 .resultaat {
@@ -110,7 +107,7 @@ button1:hover {
 
 
 .login-container {
-    background-color: white;
+    background-color: #ffffff;
     padding: 40px 60px;
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -138,7 +135,7 @@ button1:hover {
     width: 100%;
     padding: 12px;
     background-color: #333;
-    color: white;
+    color: #ffffff;
     border: none;
     border-radius: 8px;
     font-size: 1rem;
@@ -155,7 +152,7 @@ button1:hover {
     margin:  auto;
     margin-top: 3%;
     padding: 40px;
-    background-color: white;
+    background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -191,7 +188,7 @@ button1:hover {
     margin-top: 20px;
     padding: 10px 16px;
     background-color: #333;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     border-radius: 6px;
   
@@ -214,7 +211,7 @@ button1:hover {
 }
 
 .blok-midden {
-    background: white;
+    background: #ffffff;
     padding: 30px;
     border-radius: 10px;
     text-align: center;
@@ -243,8 +240,8 @@ button1:hover {
 }
 
 .knop-verzend {
-    background-color: darkblue;
-    color: white;
+    background-color: #00008b;
+    color: #ffffff;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -253,7 +250,7 @@ button1:hover {
 }
 
 .knop-verzend:hover {
-    background-color: navy;
+    background-color: #000080;
 }
 
 .info-bedrijf {
@@ -281,7 +278,7 @@ button1:hover {
     padding: 8px 16px;
     font-size: 1rem;
     background-color: #007bff;
-    color: white;
+    color: #ffffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -297,10 +294,10 @@ button1:hover {
     width: 100%;
     max-width: 800px;
     margin: 30px auto;
-    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.102);
     border-radius: 6px;
     overflow: hidden;
-    background: white;
+    background: #ffffff;
 }
 
 .boeken-tabel th,
@@ -319,3 +316,11 @@ button1:hover {
   margin: 0;
 }
 
+table {
+  border: 1px solid black; /* net als border="1" */
+  border-collapse: collapse; /* voorkomt dubbele randen */
+}
+
+td, th {
+  padding: 5px; /* net als cellpadding="5" */
+}

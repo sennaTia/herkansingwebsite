@@ -3,32 +3,29 @@ try {
     $pdo = new PDO("mysql:host=db;dbname=bibliotheek;charset=utf8mb4", "root", "rootpassword");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $genre = $_GET['genre'] ?? '';
-    $auteur = $_GET['auteur'] ?? '';
+    $auteur = ''; 
+    if (isset($_GET["auteur"])) {
+        $auteur = $_GET["auteur"];
+    }
+
+    $genre = ''; 
+    if (isset($_GET["genre"])) {
+        $genre = $_GET["genre"];
+    }
 
     $boeken = [];
 
-    // Alleen zoeken als genre of auteur ingevuld is
-    if ($genre !== '' || $auteur !== '') {
-        $sql = "SELECT * FROM boeken WHERE 1=1";
-        $params = [];
+    $sql = "SELECT * FROM boeken";
 
-        if ($genre !== '') {
-            $sql .= " AND genre LIKE ?";
-            $params[] = "%$genre%";
-        }
-        if ($auteur !== '') {
-            $sql .= " AND auteur LIKE ?";
-            $params[] = "%$auteur%";
-        }
-
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute($params);
-        $boeken = $stmt->fetchAll();
-    } else {
-        $stmt = $pdo->query("SELECT * FROM boeken");
-        $boeken = $stmt->fetchAll();
+    if ($genre != '' && $auteur != '') {
+        $sql .= " WHERE genre LIKE '%$genre%' AND auteur LIKE '%$auteur%'";
+    } elseif ($genre != '') {
+        $sql .= " WHERE genre LIKE '%$genre%'";
+    } elseif ($auteur != '') {
+        $sql .= " WHERE auteur LIKE '%$auteur%'";
     }
+
+    $boeken = $pdo->query($sql)->fetchAll();
 
 } catch (PDOException $e) {
     die("Database fout: " . $e->getMessage());
@@ -51,8 +48,8 @@ try {
 
 <main>
   <form method="get" class="zoek-formulier">
-    <input type="text" name="genre" placeholder="Genre..." value="<?= htmlspecialchars($genre) ?>" />
-    <input type="text" name="auteur" placeholder="Auteur..." value="<?= htmlspecialchars($auteur) ?>" />
+    <input type="text" name="genre" placeholder="Genre..." value="<?php echo $genre; ?>" />
+    <input type="text" name="auteur" placeholder="Auteur..." value="<?php echo $auteur; ?>" />
     <button type="submit">Zoeken</button>
   </form>
 
@@ -68,16 +65,16 @@ try {
     <tbody>
       <?php foreach ($boeken as $boek): ?>
         <tr>
-          <td><?= htmlspecialchars($boek['auteur']) ?></td>
-          <td><?= htmlspecialchars($boek['titel']) ?></td>
-          <td><?= htmlspecialchars($boek['genre']) ?></td>
+          <td><?php echo $boek['auteur']; ?></td>
+          <td><?php echo $boek['titel']; ?></td>
+          <td><?php echo $boek['genre']; ?></td>
         </tr>
       <?php endforeach; ?>
     </tbody>
   </table>
-<?php else: ?>
-  <p>Geen boeken gevonden voor deze zoekopdracht.</p>
-<?php endif; ?>
+  <?php else: ?>
+    <p>Geen boeken gevonden voor deze zoekopdracht.</p>
+  <?php endif; ?>
 
 </main>
 

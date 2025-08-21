@@ -18,20 +18,26 @@ if (isset($_POST['id'])) {
 $boeken = $pdo->query("SELECT * FROM boeken ORDER BY id DESC")->fetchAll();
 ?>
 
-<table border="1" cellpadding="5">
-    <tr><th>Auteur</th><th>Titel</th><th>Genre</th><th>Verwijderen</th></tr>
-    <?php foreach ($boeken as $boek): ?>
+<table border="1">
     <tr>
-        <td><?= htmlspecialchars($boek['auteur']) ?></td>
-        <td><?= htmlspecialchars($boek['titel']) ?></td>
-        <td><?= htmlspecialchars($boek['genre']) ?></td>
+        <th>Auteur</th>
+        <th>Titel</th>
+        <th>Genre</th>
+        <th>Verwijderen</th>
+    </tr>
+    <?php foreach ($boeken as $boek) { ?>
+    <tr>
+        <td><?php echo $boek['auteur']; ?></td>
+        <td><?php echo $boek['titel']; ?></td>
+        <td><?php echo $boek['genre']; ?></td>
         <td>
-            <form method="post" onsubmit="return confirm('Weet je het zeker?');">
-                <input type="hidden" name="id" value="<?= $boek['id'] ?>">
-                <button>Verwijderen</button>
+            <form method="post">
+                <input type="hidden" name="id" value="<?php echo $boek['id']; ?>">
+                <button type="submit">Verwijderen</button>
             </form>
         </td>
     </tr>
-    <?php endforeach; ?>
+    <?php } ?>
 </table>
+
 <a href="adminpanel.php">Terug</a>
